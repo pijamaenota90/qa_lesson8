@@ -109,12 +109,13 @@ class TestCart:
         cart.add_product(product, 10)
         assert cart.get_total_price() == 1000
 
-    # def test_buy_more_than_quantity(self, product):
-    #     cart = Cart()
-    #     cart.add_product(product, 1001)
-    #     with pytest.raises(ValueError):
-    #         cart.buy()
-    #     assert product.quantity == 1000
+    def test_buy_more_than_quantity(self, product):
+        cart = Cart()
+        cart.add_product(product, 1000)
+        cart.add_product(product, 1)
+        with pytest.raises(ValueError):
+            cart.buy()
+        assert product.quantity == 1000
 
 
     def test_buy_less_than_available(self, product):

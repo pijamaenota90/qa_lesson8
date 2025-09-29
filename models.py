@@ -109,4 +109,4 @@ class Cart:
 
         for product, quantity_in_cart in self.products.items():
             product.buy(quantity_in_cart)
-
+        self.clear()
